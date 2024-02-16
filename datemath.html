@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parameter object</title>
+</head>
+<body>
+    <div id="wrapper"></div>
+    <script>
+const numbers = ["khushi","akshat","dheeraj","aditya","ritika","kirtika"];
+
+      const distinctValues = [];
+
+      function getRandomValue() {
+        let randomValues = Math.floor(Math.random() * numbers.length);
+        if (distinctValues.includes(randomValues)) return getRandomValue();
+        else {
+          distinctValues.push(randomValues);
+          return randomValues;
+        }
+      }
+
+      let currentIndex = 0;
+
+      const intervalId = setInterval(() => {
+        if (currentIndex < numbers.length) {
+          document.write(numbers[getRandomValue()] + " , "+"<br>");
+          currentIndex++;
+        } else {
+          clearInterval(intervalId);
+        }
+      }, 1000);
+    </script>
+</body>
+</html>
